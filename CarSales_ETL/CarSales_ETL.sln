@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37012.4 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "CarSales_ETL", "CarSales_ETL\CarSales_ETL.dtproj", "{460A358E-FC2A-C62A-117F-2261EB90B9E7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Azure|Default = Azure|Default
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{460A358E-FC2A-C62A-117F-2261EB90B9E7}.Azure|Default.ActiveCfg = Azure
+		{460A358E-FC2A-C62A-117F-2261EB90B9E7}.Azure|Default.Build.0 = Azure
+		{460A358E-FC2A-C62A-117F-2261EB90B9E7}.Development|Default.ActiveCfg = Development
+		{460A358E-FC2A-C62A-117F-2261EB90B9E7}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {432650A2-C5F6-4A6B-B358-C206628CFAEA}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/24/2026 3:33:26 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-CO920IJ"
+  DTS:CreatorName="DESKTOP-CO920IJ\ACER"
+  DTS:DTSID="{9B2438E3-8542-4EB7-A050-865DCCC1A6A7}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1010.2"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="CarSales_Accumulating_Fact"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{80BD9C75-CC14-49D0-85CB-258315F75F1F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-CO920IJ\MSSQLSERVER2.CarSales_DW.sa]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{EF0DC7EA-06B0-47CF-B276-4A2DD26A5A58}"
+      DTS:ObjectName="DESKTOP-CO920IJ\MSSQLSERVER2.CarSales_DW.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-CO920IJ\MSSQLSERVER2;User ID=sa;Initial Catalog=CarSales_DW;Provider=SQLNCLI11.1;Application Name=SSIS-CarSales_Accumulating_Fact-{EF0DC7EA-06B0-47CF-B276-4A2DD26A5A58}DESKTOP-CO920IJ\MSSQLSERVER2.CarSales_DW.sa;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAljeJyzLhREGjx4USr1HazwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAQlIcNg5ihU/Nmbftv5U7J1ueVLlgtxIqudLFJzzd0jAAAAAAOgAAAAAIAACAAAAAI8QwovCMDk2wQuIffaW0tLROQSpz0OVX0fuNt6pKd2iAAAAC+371aZiUYLFBBdZWxBUIsdhDahOo6QFKw8JoCXHjdrEAAAABcMtqWvsbsoBBbIrKzbe4Wj/waNHxTNY0BsRxIkMGi+xeyjS9EVrXJz82wWilMfFkTtwJ0sNGtC7riqvqfC7OI</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Update Accumulating Fact"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{523330D6-EC8D-4CB8-989D-8E497400EEC4}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update Accumulating Fact"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{EF0DC7EA-06B0-47CF-B276-4A2DD26A5A58}"
+          SQLTask:SqlStatementSource="UPDATE f&#xA;SET &#xA;    f.accm_txn_complete_time = s.accm_txn_complete_time,&#xA;    f.txn_process_time_hours =&#xA;        DATEDIFF(MINUTE, f.accm_txn_create_time, s.accm_txn_complete_time) / 60.0&#xA;FROM dbo.Fact_Sales f&#xA;JOIN CarSales_Staging.dbo.Stg_Completion s&#xA;    ON f.Sale_ID = s.Sale_ID;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="200,41.6"
+          Id="Package\Update Accumulating Fact"
+          TopLeft="72.4999960387748,87.5333327246375" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
